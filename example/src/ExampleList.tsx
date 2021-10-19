@@ -13,6 +13,7 @@ import BottomNavigationExample from './Examples/BottomNavigationExample';
 import ButtonExample from './Examples/ButtonExample';
 import CardExample from './Examples/CardExample';
 import CheckboxExample from './Examples/CheckboxExample';
+import CheckboxItemExample from './Examples/CheckboxItemExample';
 import ChipExample from './Examples/ChipExample';
 import DataTableExample from './Examples/DataTableExample';
 import DialogExample from './Examples/DialogExample';
@@ -35,11 +36,14 @@ import TextInputExample from './Examples/TextInputExample';
 import ToggleButtonExample from './Examples/ToggleButtonExample';
 import TouchableRippleExample from './Examples/TouchableRippleExample';
 import ThemeExample from './Examples/ThemeExample';
+import RadioButtonItemExample from './Examples/RadioButtonItemExample';
+import AnimatedFABExample from './Examples/AnimatedFABExample';
 
 export const examples: Record<
   string,
   React.ComponentType<any> & { title: string }
 > = {
+  ...(__DEV__ && { animatedFab: AnimatedFABExample }),
   activityIndicator: ActivityIndicatorExample,
   appbar: AppbarExample,
   avatar: AvatarExample,
@@ -49,6 +53,7 @@ export const examples: Record<
   button: ButtonExample,
   card: CardExample,
   checkbox: CheckboxExample,
+  checkboxItem: CheckboxItemExample,
   chip: ChipExample,
   dataTable: DataTableExample,
   dialog: DialogExample,
@@ -62,6 +67,7 @@ export const examples: Record<
   progressbar: ProgressBarExample,
   radio: RadioButtonExample,
   radioGroup: RadioButtonGroupExample,
+  radioItem: RadioButtonItemExample,
   searchbar: SearchbarExample,
   snackbar: SnackbarExample,
   surface: SurfaceExample,
@@ -104,6 +110,8 @@ export default function ExampleList({ navigation }: Props) {
       contentContainerStyle={{
         backgroundColor: colors.background,
         paddingBottom: safeArea.bottom,
+        paddingLeft: safeArea.left,
+        paddingRight: safeArea.right,
       }}
       ItemSeparatorComponent={Divider}
       renderItem={renderItem}
