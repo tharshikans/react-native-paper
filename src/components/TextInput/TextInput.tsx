@@ -168,7 +168,7 @@ type TextInputHandles = Pick<
  * import { TextInput } from 'react-native-paper';
  *
  * const MyComponent = () => {
- *   const [text, setText] = React.useState('');
+ *   const [text, setText] = React.useState("");
  *
  *   return (
  *     <TextInput
@@ -386,38 +386,42 @@ const TextInput = React.forwardRef<TextInputHandles, TextInputProps>(
     };
     const forceFocus = () => root.current?.focus();
 
-    return mode === 'outlined' ? (
-      <TextInputOutlined
-        dense={dense}
-        disabled={disabled}
-        error={errorProp}
-        multiline={multiline}
-        editable={editable}
-        render={render}
-        {...rest}
-        value={value}
-        parentState={{
-          labeled,
-          error,
-          focused,
-          placeholder,
-          value,
-          labelLayout,
-          leftLayout,
-          rightLayout,
-        }}
-        innerRef={(ref) => {
-          root.current = ref;
-        }}
-        onFocus={handleFocus}
-        forceFocus={forceFocus}
-        onBlur={handleBlur}
-        onChangeText={handleChangeText}
-        onLayoutAnimatedText={handleLayoutAnimatedText}
-        onLeftAffixLayoutChange={onLeftAffixLayoutChange}
-        onRightAffixLayoutChange={onRightAffixLayoutChange}
-      />
-    ) : (
+    if (mode === 'outlined') {
+      return (
+        <TextInputOutlined
+          dense={dense}
+          disabled={disabled}
+          error={errorProp}
+          multiline={multiline}
+          editable={editable}
+          render={render}
+          {...rest}
+          value={value}
+          parentState={{
+            labeled,
+            error,
+            focused,
+            placeholder,
+            value,
+            labelLayout,
+            leftLayout,
+            rightLayout,
+          }}
+          innerRef={(ref) => {
+            root.current = ref;
+          }}
+          onFocus={handleFocus}
+          forceFocus={forceFocus}
+          onBlur={handleBlur}
+          onChangeText={handleChangeText}
+          onLayoutAnimatedText={handleLayoutAnimatedText}
+          onLeftAffixLayoutChange={onLeftAffixLayoutChange}
+          onRightAffixLayoutChange={onRightAffixLayoutChange}
+        />
+      );
+    }
+
+    return (
       <TextInputFlat
         dense={dense}
         disabled={disabled}
