@@ -95,6 +95,7 @@ export type TextInputProps = React.ComponentPropsWithRef<
    * Callback that is called when the text input is blurred.
    */
   onBlur?: (args: any) => void;
+  renderRight?: () => any;
   /**
    *
    * Callback to render a custom input component such as `react-native-text-input-mask`
@@ -438,8 +439,12 @@ class TextInput extends React.Component<TextInputProps, State> {
   blur() {
     return this.root && this.root.blur();
   }
+
   render() {
-    const { mode, ...rest } = this.props as $Omit<TextInputProps, 'ref'>;
+    const { mode, renderRight, ...rest } = this.props as $Omit<
+      TextInputProps,
+      'ref'
+    >;
 
     return mode === 'outlined' ? (
       <TextInputOutlined
@@ -456,6 +461,7 @@ class TextInput extends React.Component<TextInputProps, State> {
         onLayoutAnimatedText={this.handleLayoutAnimatedText}
         onLeftAffixLayoutChange={this.onLeftAffixLayoutChange}
         onRightAffixLayoutChange={this.onRightAffixLayoutChange}
+        renderRight={renderRight}
       />
     ) : (
       <TextInputFlat
@@ -472,6 +478,7 @@ class TextInput extends React.Component<TextInputProps, State> {
         onLayoutAnimatedText={this.handleLayoutAnimatedText}
         onLeftAffixLayoutChange={this.onLeftAffixLayoutChange}
         onRightAffixLayoutChange={this.onRightAffixLayoutChange}
+        // renderRight={renderRight}
       />
     );
   }

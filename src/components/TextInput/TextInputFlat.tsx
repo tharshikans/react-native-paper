@@ -82,6 +82,7 @@ class TextInputFlat extends React.Component<ChildTextInputProps> {
       left,
       right,
       placeholderTextColor,
+      renderRight,
       ...rest
     } = this.props;
 
@@ -369,6 +370,7 @@ class TextInputFlat extends React.Component<ChildTextInputProps> {
             ],
           })}
         </View>
+        {renderRight?.()}
         <TextInputAdornment {...adornmentProps} />
       </View>
     );
