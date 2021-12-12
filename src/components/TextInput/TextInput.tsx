@@ -5,7 +5,6 @@ import {
   LayoutChangeEvent,
   StyleProp,
   TextStyle,
-  Text,
 } from 'react-native';
 import { areLabelsEqual } from './helpers';
 import TextInputOutlined from './TextInputOutlined';
@@ -447,10 +446,7 @@ class TextInput extends React.Component<TextInputProps, State> {
     return this.root && this.root.blur();
   }
   render() {
-    const { mode, renderRight, ...rest } = this.props as $Omit<
-      TextInputProps,
-      'ref'
-    >;
+    const { mode, ...rest } = this.props as $Omit<TextInputProps, 'ref'>;
 
     return mode === 'outlined' ? (
       <TextInputOutlined
