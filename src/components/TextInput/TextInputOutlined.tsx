@@ -81,6 +81,7 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
       left,
       right,
       placeholderTextColor,
+      renderRight,
       ...rest
     } = this.props;
 
@@ -306,6 +307,9 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
               {
                 paddingTop: LABEL_PADDING_TOP,
                 minHeight,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
               },
             ]}
           >
@@ -354,6 +358,7 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
                 adornmentStyleAdjustmentForNativeInput,
               ],
             } as RenderProps)}
+            {!!renderRight && renderRight()}
           </View>
           <TextInputAdornment {...adornmentProps} />
         </View>
