@@ -7,6 +7,7 @@ import {
   Platform,
   TextStyle,
   ColorValue,
+  Text,
 } from 'react-native';
 import color from 'color';
 import TextInputAdornment, {
@@ -285,6 +286,8 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
       };
     }
 
+    const renderTest = () => <Text>thnthnt</Text>;
+
     return (
       <View style={viewStyle}>
         {/*
@@ -360,7 +363,7 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
             } as RenderProps)}
             {!!renderRight && renderRight()}
           </View>
-          <TextInputAdornment {...adornmentProps} />
+          {/*<TextInputAdornment {...adornmentProps} />*/}
         </View>
       </View>
     );

@@ -5,6 +5,7 @@ import {
   LayoutChangeEvent,
   StyleProp,
   TextStyle,
+  Text,
 } from 'react-native';
 import { areLabelsEqual } from './helpers';
 import TextInputOutlined from './TextInputOutlined';
@@ -131,6 +132,8 @@ export type TextInputProps = React.ComponentPropsWithRef<
    * @optional
    */
   theme: ReactNativePaper.Theme;
+
+  renderRight?: () => void;
 };
 
 /**
@@ -404,6 +407,11 @@ class TextInput extends React.Component<TextInputProps, State> {
     return this.root?.focus();
   };
 
+  renderRight = () => {
+    if (this.props.renderRight) return this.props.renderRight();
+    return null;
+  };
+
   /**
    * @internal
    */
@@ -439,10 +447,14 @@ class TextInput extends React.Component<TextInputProps, State> {
     return this.root && this.root.blur();
   }
   render() {
-    const { mode, ...rest } = this.props as $Omit<TextInputProps, 'ref'>;
+    const { mode, renderRight, ...rest } = this.props as $Omit<
+      TextInputProps,
+      'ref'
+    >;
 
     return mode === 'outlined' ? (
       <TextInputOutlined
+        renderRight={this.renderRight}
         {...rest}
         value={this.state.value}
         parentState={this.state}
@@ -472,6 +484,7 @@ class TextInput extends React.Component<TextInputProps, State> {
         onLayoutAnimatedText={this.handleLayoutAnimatedText}
         onLeftAffixLayoutChange={this.onLeftAffixLayoutChange}
         onRightAffixLayoutChange={this.onRightAffixLayoutChange}
+        renderRight={this.renderRight}
       />
     );
   }
