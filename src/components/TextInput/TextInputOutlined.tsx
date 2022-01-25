@@ -7,6 +7,7 @@ import {
   Platform,
   TextStyle,
   ColorValue,
+  Dimensions,
 } from 'react-native';
 import color from 'color';
 import TextInputAdornment, {
@@ -415,6 +416,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
+    minWidth: Dimensions.get('window').width / 2.5,
     flexGrow: 1,
     paddingHorizontal: INPUT_PADDING_HORIZONTAL,
     margin: 0,
