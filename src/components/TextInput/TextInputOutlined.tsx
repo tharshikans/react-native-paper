@@ -334,6 +334,7 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
               multiline,
               style: [
                 styles.input,
+                !renderRight && {minWidth: Dimensions.get('window').width / 1.3 }
                 !multiline || (multiline && height)
                   ? { height: inputHeight }
                   : {},
@@ -416,7 +417,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    minWidth: Dimensions.get('window').width / 2.5,
+    minWidth: '20%',
     flexGrow: 1,
     paddingHorizontal: INPUT_PADDING_HORIZONTAL,
     margin: 0,
