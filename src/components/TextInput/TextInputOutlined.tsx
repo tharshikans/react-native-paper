@@ -334,7 +334,7 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
               multiline,
               style: [
                 styles.input,
-                !renderRight && {minWidth: Dimensions.get('window').width / 1.3 }
+                // !renderRight && {minWidth: Dimensions.get('window').width / 1.3 },
                 !multiline || (multiline && height)
                   ? { height: inputHeight }
                   : {},
