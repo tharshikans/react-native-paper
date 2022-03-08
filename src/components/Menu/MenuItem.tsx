@@ -6,6 +6,7 @@ import {
   TextStyle,
   View,
   ViewStyle,
+  Dimensions,
 } from 'react-native';
 import Icon, { IconSource } from '../Icon';
 import TouchableRipple from '../TouchableRipple/TouchableRipple';
@@ -130,7 +131,7 @@ const MenuItem = ({
         >
           <Text
             selectable={false}
-            numberOfLines={1}
+            numberOfLines={2}
             style={[styles.title, { color: titleColor }, titleStyle]}
           >
             {title}
@@ -144,7 +145,7 @@ const MenuItem = ({
 MenuItem.displayName = 'Menu.Item';
 
 const minWidth = 112;
-const maxWidth = 280;
+const maxWidth = Dimensions.get('window').width * 0.9;
 const iconWidth = 40;
 
 const styles = StyleSheet.create({
