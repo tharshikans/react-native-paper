@@ -348,6 +348,7 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
                     : I18nManager.isRTL
                     ? 'right'
                     : 'left',
+                  fontFamily: 'IBMPlexMono-Regular',
                 },
                 Platform.OS === 'web' && { outline: 'none' },
                 adornmentStyleAdjustmentForNativeInput,
