@@ -83,8 +83,7 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
       placeholderTextColor,
       renderRight,
       inputFont,
-      ...rest,
-
+      ...rest
     } = this.props;
 
     const adornmentConfig = getAdornmentConfig({ left, right });
