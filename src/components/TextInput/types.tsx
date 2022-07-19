@@ -46,6 +46,7 @@ export type ChildTextInputProps = {
   onLeftAffixLayoutChange: (event: LayoutChangeEvent) => void;
   onRightAffixLayoutChange: (event: LayoutChangeEvent) => void;
   renderRight?: () => any;
+  inputFont?: string;
 } & TextInputTypesWithoutMode;
 export type LabelProps = {
   mode?: 'flat' | 'outlined';

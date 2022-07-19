@@ -96,6 +96,7 @@ export type TextInputProps = React.ComponentPropsWithRef<
    */
   onBlur?: (args: any) => void;
   renderRight?: () => any;
+  inputFont?: string;
   /**
    *
    * Callback to render a custom input component such as `react-native-text-input-mask`

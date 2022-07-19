@@ -82,7 +82,9 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
       right,
       placeholderTextColor,
       renderRight,
-      ...rest
+      inputFont,
+      ...rest,
+
     } = this.props;
 
     const adornmentConfig = getAdornmentConfig({ left, right });
@@ -348,7 +350,7 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
                     : I18nManager.isRTL
                     ? 'right'
                     : 'left',
-                  fontFamily: 'IBMPlexMono-Regular',
+                  fontFamily: !inputFont ? 'IBMPlexMono-Regular' : null,
                 },
                 Platform.OS === 'web' && { outline: 'none' },
                 adornmentStyleAdjustmentForNativeInput,
